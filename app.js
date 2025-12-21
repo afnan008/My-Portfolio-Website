@@ -1,36 +1,37 @@
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('projectVideo2');
-const video3 = document.getElementById('projectVideo3');
+window.addEventListener("load", () => {
+  const loader = document.getElementById("intro-loader");
+  const flash = document.getElementById("flash-light");
 
-// Sidebar elements //
-const sideBar = document.querySelector('.sidebar');
-const menu = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.close-icon')
+  setTimeout(() => {
+    loader.style.opacity = "0";
 
+    flash.classList.add("flash-active");
 
-const hoverSign = document.querySelector('.hover-sign');
+    setTimeout(() => {
+      loader.remove();
 
-const videoList =[video1, video2, video3];
+      document.body.classList.remove("preload");
 
-videoList.forEach (function(video){
-    video.addEventListener("mouseover", function(){
-        video.play()
-        hoverSign.classList.add("active")
-    })
-    video.addEventListener("mouseout", function(){
-    video.pause();
-    hoverSign.classList.remove("active")
-})
-})
+      document.querySelectorAll(
+        ".autoBlur, .autoDisplay, .fadein-left, .gradient"
+      ).forEach(el => {
+        el.style.animation = "none";
+        el.offsetHeight;
+        el.style.animation = "";
+      });
 
-// Sidebar elements //
-menu.addEventListener("click", function(){
-    sideBar.classList.remove("close-sidebar")
-    sideBar.classList.add("open-sidebar")
+      AOS.init({
+        once: true,
+        duration: 1800,
+        easing: "ease-out-cubic"
+      });
+
+      AOS.refreshHard();
+
+      setTimeout(() => {
+        flash.remove();
+      }, 600);
+
+    }, 300);
+  }, 2000); 
 });
-
-closeIcon.addEventListener("click", function(){
-    sideBar.classList.remove("open-sidebar");
-    sideBar.classList.add("close-sidebar");
-    
-})
