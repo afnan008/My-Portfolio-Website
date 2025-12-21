@@ -35,3 +35,21 @@ window.addEventListener("load", () => {
     }, 300);
   }, 2000); 
 });
+
+
+
+const menuIcon = document.querySelector(".menu-icon");
+const sidebar = document.querySelector(".sidebar");
+const closeIcon = document.querySelector(".close-icon");
+
+// open sidebar
+menuIcon.addEventListener("click", () => {
+  sidebar.classList.remove("close-sidebar");
+  sidebar.classList.add("open-sidebar");
+});
+
+// close sidebar
+closeIcon.addEventListener("click", () => {
+  sidebar.classList.remove("open-sidebar");
+  sidebar.classList.add("close-sidebar");
+});
