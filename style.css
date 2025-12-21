@@ -1381,3 +1381,40 @@ width: 100%;
 
 
 }
+
+@media screen and (max-width: 600px){
+
+  .hero-img,
+  .hero-img.autoBlur,
+  .hero .hero-img{
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+}
+
+/* ===== BALANCED GAP BEFORE INFO SECTION (MOBILE) ===== */
+@media screen and (max-width: 600px){
+
+  .hero{
+    height: auto !important;
+    min-height: auto !important;
+    padding-bottom: 20%;   /* 👈 THODA GAP */
+  }
+
+  .info-section{
+    margin-top: 40px !important;   /* 👈 CLEAN SPACE */
+  }
+.skills-section{
+    margin-top: 30%;
+}
+  .container{
+    gap: 60px !important;   /* 👈 OVERALL FLOW SMOOTH */
+  }
+
+}
